@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_POST['confirm'])) {
     header("Location: flightBooking.html");
+    exit();
 }
 $fn = $_SESSION['passengerFN'];
 $sn = $_SESSION['passengerSN'];
@@ -17,7 +18,7 @@ else {
 include("dbcon.php");
 $sql = "insert into flightbooking(firstname,surname,bagsUnderTenKG,bagsOverTenKG) values ";
 
-$sql .= "('$fn','$sn','1','1')";
+$sql .= "('$fn','$sn','$subTenKG','$overTenKG')";
 
 //echo $sql;
 
